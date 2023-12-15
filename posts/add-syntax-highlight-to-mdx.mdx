@@ -1,0 +1,119 @@
+---
+title: Add syntax highlight to your mdx
+date: "16th December 2023"
+description: How to add syntax color in 2 minutes to your blog posts.
+---
+
+In this tutorial, we'll setup [highlight.js](https://github.com/rehypejs/rehype-highlight) using the rehypeHighlight MDX plugin to allow code blocks in our mdx files to include syntax highlighting. We'll then choose a highlight.js theme to add to our Next.js site in order to style the code blocks as we choose.
+
+1. in your project run `npm install rehype-highlight`
+
+## Setup Highlight.js Plugin
+
+With the plugin installed, we now need to add it to our MDX provider. To do this, first import the plugin into your `post/[slug]/page.tsx` page and add it to the array of "rehypePlugins":
+
+```javascript
+//app/post/[slug]/page.tsx
+
+import rehypeHighlight from "rehype-highlight";
+
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
+};
+```
+
+Then we pass these options through to our MDXRemote component:
+
+```javascript
+// app/post/[slug]/page.tsx
+<MDXRemote source={props.content} options={options} />
+```
+
+## Additional Configuration
+
+The rehypeHighlight package does allow additional configuration which you can see here, one of those options is enabling additional feature to auto-detect the language of your code.
+
+```javascript
+// app/post/[slug]/page.tsx
+import rehypeHighlight from "rehype-highlight";
+
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [[rehypeHighlight, { detect: true }]],
+  },
+};
+```
+
+If the auto-detect fail you can explicit the language in this way:
+
+````
+```javascript
+console.log("Hello!")
+```
+````
+
+## Styling your Code
+
+Now that we have the plugin setup, your code blocks now have the correct CSS class names ready to be styled. The next step is to choose the theme we would like to use.
+
+1. Find the theme you want to use: [Highlight.js Styles](https://highlightjs.org/demo)
+2. Download the theme from [Github](https://github.com/highlightjs/highlight.js/tree/main/src/styles)
+3. Download and move the CSS file in the following new directory in your project: `styles/highlight-js`
+
+Now import the css in the `[slug]/page.tsx`
+
+```javascript
+// app/post/[slug]/page.tsx
+import "@/styles/highlight-js/dracula.css";
+```
+
+## bonus
+
+If you don't like the backthick around inline code (made by tailwind typography \ prose) you can override that style in the `tailwind.config.ts` file in this way:
+
+from:
+
+```javascript
+  theme: {
+    extend: {
+    },
+  },
+```
+
+to:
+
+```javascript
+  theme: {
+    extend: {
+      typography(theme) {
+        return {
+          DEFAULT: {
+            css: {
+              "code::before": {
+                content: "none",
+              },
+              "code::after": {
+                content: "none",
+              },
+              code: {
+                color: theme("colors.slate.500"),
+                backgroundColor: theme("colors.slate.100"),
+                borderRadius: theme("borderRadius.DEFAULT"),
+                paddingLeft: theme("spacing[1.5]"),
+                paddingRight: theme("spacing[1.5]"),
+                paddingTop: theme("spacing.1"),
+                paddingBottom: theme("spacing.1"),
+              },
+            },
+          },
+        };
+      },
+    },
+  },
+```
+
+that's it.
