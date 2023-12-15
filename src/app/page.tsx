@@ -34,7 +34,7 @@ export default function Home() {
 
         <div className="py-2">
           {posts.map((post) => (
-            <Link href={"/posts/" + post.slug} passHref key={post.slug}>
+            <Link href={"/post/" + post.slug} passHref key={post.slug}>
               <div className="py-2 flex justify-between align-middle gap-2">
                 <div>
                   <h3 className="text-lg font-bold">{post.meta.title}</h3>
