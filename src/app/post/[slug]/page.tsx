@@ -2,6 +2,17 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeHighlight from "rehype-highlight";
+import "@/styles/highlight-js/dracula.css";
+
+/* rehypeHighlight options for syntax highlight and other stuff */
+
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
+};
 
 /* By default, dynamic routes are generated on-demand at request time which leads to slow loading pages with bad SEO. Instead, as our blogs aren't going to regularly change, we can statically generate the routes for these blogs at build time.
 To do this, we fetch all files in the "blogs" directory and return an array of slugs for each file. */
@@ -44,7 +55,7 @@ export default function Post({ params }: any) {
       <h1>{props.frontMatter.title}</h1>
 
       {/* @ts-expect-error Server Component*/}
-      <MDXRemote source={props.content} />
+      <MDXRemote source={props.content} options={options} />
     </article>
   );
 }
