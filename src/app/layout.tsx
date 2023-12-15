@@ -16,9 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-900 text-white max-w-3xl mx-auto py-20 px-4 ">
-        {children}
-      </body>
+      <body className="max-w-3xl mx-auto py-20 px-4 ">{children}</body>
     </html>
   );
 }
