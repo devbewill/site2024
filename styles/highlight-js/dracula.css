@@ -44,15 +44,11 @@ code.hljs {
   padding: 3px 5px;
 }
 
+pre:has(.hljs),
 .hljs {
   color: #e9e9f4;
   background: #282936;
 }
-
-/* pre:has(.hljs), .hljs {
-  color: #c9d1d9;
-  background: #0d1117;
-} */
 
 .hljs::selection,
 .hljs ::selection {
@@ -73,7 +69,7 @@ code.hljs {
 
 /* base04 - #62d6e8 -  Dark Foreground (Used for status bars) */
 .hljs-tag {
-  color: #62d6e8;
+  color: #62e89c;
 }
 
 /* base05 - #e9e9f4 -  Default Foreground, Caret, Delimiters, Operators */
@@ -94,7 +90,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: #ea51b2;
+  color: #62e89c;
 }
 
 /* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
@@ -142,7 +138,7 @@ code.hljs {
 .ruby .hljs-property,
 .hljs-title.function_,
 .hljs-section {
-  color: #62d6e8;
+  color: #f7d85e;
 }
 
 /* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
@@ -154,10 +150,10 @@ code.hljs {
 .hljs-template-tag,
 .diff .hljs-meta,
 .hljs-keyword {
-  color: #b45bcf;
+  color: #e484ff;
 }
 .hljs-emphasis {
-  color: #b45bcf;
+  color: #d64eff;
   font-style: italic;
 }
 
