@@ -10,7 +10,7 @@ import "@/styles/highlight-js/dracula.css";
 const options = {
   mdxOptions: {
     remarkPlugins: [],
-    rehypePlugins: [rehypeHighlight],
+    rehypePlugins: [[rehypeHighlight, { detect: true }]],
   },
 };
 
