@@ -1,0 +1,23 @@
+---
+title: Create a sticky sidebar with just a few lines of CSS
+date: "10 December 2023"
+description: Create a sticky sidebar with just a few lines of CSS.
+---
+
+In this example we use a `flex` container within a `grid` div splitted in 10 columns.
+
+The width of the sidebar is set to use 2 columns, while the content is set to start from column 4 and use all the space available.
+
+```js
+<main className="flex h-[200vh]">
+  <div className="grid grid-cols-10 w-full">
+    <aside className="self-start sticky top-10 col-span-2 bg-green-200">
+      Mi sticky sidebar
+    </aside>
+
+    <div className="col-start-4 col-span-full  bg-violet-200">
+      my awesome content
+    </div>
+  </div>
+</main>
+```
