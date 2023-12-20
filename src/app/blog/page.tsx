@@ -4,21 +4,12 @@ import matter from "gray-matter";
 import Link from "next/link";
 
 export default function Blog() {
-  // 1) Set posts directory
   const postDir = "posts";
-
-  // 2) Find all files in the posts directory
   const files = fs.readdirSync(path.join(postDir));
-
-  // 3) For each blog found
   const posts = files.map((filename) => {
-    // 4) Read the content of that blog
     const fileContent = fs.readFileSync(path.join(postDir, filename), "utf-8");
-
-    // 5) Extract the metadata from the blog's content
     const { data: frontMatter } = matter(fileContent);
 
-    // 6) Return the metadata and page slug
     return {
       meta: frontMatter,
       slug: filename.replace(".mdx", ""),
@@ -27,26 +18,28 @@ export default function Blog() {
 
   return (
     <main className="flex flex-col">
-      <h1 className="text-3xl font-bold">Test blog with Nextjs14 + MDX</h1>
-
+      <h1 className="text-3xl font-bold">All posts</h1>
       <section className="py-10">
-        <h2 className="text-2xl font-bold">Latest Posts</h2>
-
-        <div className="py-2">
-          {posts.map((post) => (
-            <Link href={"/post/" + post.slug} passHref key={post.slug}>
-              <div className="py-2 flex justify-between align-middle gap-2">
-                <div>
-                  <h3 className="text-lg font-bold">{post.meta.title}</h3>
-                  <p className="text-gray-400">{post.meta.description}</p>
-                </div>
-                <div className="my-auto text-gray-400">
-                  <p>{post.meta.date}</p>
-                </div>
-              </div>
+        {posts.map((post) => (
+          <div
+            key={post.slug}
+            className="w-full grid py-2 grid-cols-12 border-b"
+          >
+            <div className="col-span-1">
+              <span className="text-xs font-bold uppercase bg-purple-500 text-white p-1 rounded">
+                {post.meta.tags}
+              </span>
+            </div>
+            <Link
+              href={"/post/" + post.slug}
+              passHref
+              className="col-span-5 font-semibold"
+            >
+              {post.meta.title}
             </Link>
-          ))}
-        </div>
+            <div className="col-span-5 justify-self-end">{post.meta.date}</div>
+          </div>
+        ))}
       </section>
     </main>
   );
