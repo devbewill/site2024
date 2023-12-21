@@ -1,4 +1,9 @@
-export default function Section({ title, children }) {
+type SectionProps = {
+  title: string;
+  children?: React.ReactNode;
+};
+
+export default function Section({ title, children }: SectionProps) {
   return (
     <section className="experience mb-10">
       <h1 className="text-2xl font-bold text-black">{title}</h1>

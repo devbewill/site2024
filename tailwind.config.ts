@@ -13,7 +13,7 @@ const config: Config = {
         secondary: "#f9f9f9",
       },
 
-      typography(theme) {
+      typography(theme: any) {
         return {
           DEFAULT: {
             css: {
