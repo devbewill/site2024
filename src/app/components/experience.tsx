@@ -41,7 +41,10 @@ export default function Experience() {
     <section className="experience py-4">
       {data.map((job, index) => {
         return (
-          <div className="grid py-2 grid-cols-12 border-b border-black">
+          <div
+            key={job.company}
+            className="grid py-2 grid-cols-12 border-b border-black"
+          >
             <div className="col-span-5 font-semibold text-black">
               {job.role}
             </div>

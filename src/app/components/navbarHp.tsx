@@ -28,8 +28,8 @@ export default function NavbarHp() {
       <p>
         I like to think of myself as a product manager who consistently strikes
         the perfect balance between relying on best practices and trusting my
-        intuition or at least that's what I tell myself when things go for the
-        right way.
+        intuition or at least that&apos;s what I tell myself when things go for
+        the right way.
       </p>
     </header>
   );

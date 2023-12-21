@@ -51,7 +51,7 @@ export default function Stack() {
       <div className="flex flex-col">
         {data.map((tool, index) => {
           return (
-            <div className="flex items-center py-2 border-b">
+            <div key={tool.name} className="flex items-center py-2 border-b">
               <div className="pr-4">
                 <Image width={40} height={40} src={tool.logo} alt={tool.name} />
               </div>
