@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Footer from "./components/footer";
 import "./globals.css";
 
-export const inter = Inter({
+const inter = Inter({
   weight: ["300", "400", "700", "900"],
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "stefanoperelli.com",
   description: "my little space on web",
 };
