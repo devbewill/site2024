@@ -11,9 +11,7 @@ export default function Home() {
     <main className="w-full lg:grid lg:grid-cols-10 mt-36">
       <NavbarHp></NavbarHp>
       <div className="mt-20 lg:mt-10 lg:col-start-5 lg:col-span-full">
-        <Section title="On track">
-          <Tasks></Tasks>
-        </Section>
+        <Section title="On track">{/* <Tasks></Tasks> */}</Section>
         <Section title="Last posts">
           <Lastposts></Lastposts>
         </Section>
