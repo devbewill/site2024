@@ -43,13 +43,13 @@ export default function Experience() {
         return (
           <div
             key={job.company}
-            className="grid py-2 grid-cols-12 border-b border-black"
+            className="grid py-2 lg:grid-cols-12 border-b border-black"
           >
-            <div className="col-span-5 font-semibold text-black">
+            <div className="lg:col-span-3">{job.year}</div>
+            <div className="lg:col-span-5 font-semibold text-black">
               {job.role}
             </div>
-            <div className="col-span-5 ">{job.company}</div>
-            <div className="col-span-2 justify-self-end">{job.year}</div>
+            <div className="lg:col-span-4 justify-self-end">{job.company}</div>
           </div>
         );
       })}

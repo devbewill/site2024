@@ -21,16 +21,18 @@ export default function Lastposts() {
       {posts.map((post) => (
         <div
           key={post.slug}
-          className="w-full grid py-2 grid-cols-12 border-b border-slate-500"
+          className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"
         >
+          <div className="lg:order-2 lg:col-span-3 lg:justify-self-end">
+            {post.meta.date}
+          </div>
           <Link
             href={"/post/" + post.slug}
             passHref
-            className="col-span-9 font-semibold text-black transition hover:text-primary hover:translate-x-1"
+            className="lg:order-1 lg:col-span-9 font-semibold text-black transition hover:text-primary hover:translate-x-1"
           >
             {post.meta.title}
           </Link>
-          <div className="col-span-3 justify-self-end">{post.meta.date}</div>
         </div>
       ))}
     </section>
