@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar() {
+export default function NavbarHp() {
   return (
     <header className="lg:self-start lg:sticky lg:col-span-3 lg:top-10">
       <div className="flex font-semibold">
