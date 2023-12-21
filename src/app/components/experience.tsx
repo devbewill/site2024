@@ -8,7 +8,7 @@ export default function Experience() {
     },
     {
       year: "2020",
-      role: "Senior Product Manager",
+      role: "Sr. Product Manager",
       company: "Fiscozen",
       img: "fiscozen.png",
     },
@@ -20,8 +20,8 @@ export default function Experience() {
     },
     {
       year: "2012",
-      role: "Frontend Developer",
-      company: "NTTDATA",
+      role: "Front-end developer",
+      company: "NTT DATA",
       img: "nttdata.png",
     },
     {
@@ -41,8 +41,10 @@ export default function Experience() {
     <section className="experience py-4">
       {data.map((job, index) => {
         return (
-          <div className="grid py-2 grid-cols-12 border-b">
-            <div className="col-span-5 font-semibold">{job.role}</div>
+          <div className="grid py-2 grid-cols-12 border-b border-black">
+            <div className="col-span-5 font-semibold text-black">
+              {job.role}
+            </div>
             <div className="col-span-5 ">{job.company}</div>
             <div className="col-span-2 justify-self-end">{job.year}</div>
           </div>

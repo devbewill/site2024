@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html {
-  font-size: 18px;
-  color: rgb(86, 86, 86);
+  font-size: 16px;
+  color: rgb(110, 110, 110);
   line-height: 1.5;
 }
 

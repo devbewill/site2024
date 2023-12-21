@@ -15,7 +15,6 @@ export default function Blog() {
       slug: filename.replace(".mdx", ""),
     };
   });
-
   return (
     <main className="flex flex-col">
       <h1 className="text-3xl font-bold">All posts</h1>
