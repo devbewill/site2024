@@ -12,3 +12,7 @@ h1 {
   font-family: var(--font-inter);
   letter-spacing: -1px;
 }
+
+pre code.hljs {
+  font-size: 0.95rem;
+}

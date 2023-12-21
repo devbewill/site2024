@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#7d7ff9",
+        secondary: "#f9f9f9",
+      },
+
       typography(theme) {
         return {
           DEFAULT: {
@@ -20,8 +25,8 @@ const config: Config = {
                 content: "none",
               },
               code: {
-                color: theme("colors.slate.800"),
-                backgroundColor: theme("colors.violet.100"),
+                color: theme("colors.white"),
+                backgroundColor: theme("colors.primary"),
                 borderRadius: theme("borderRadius.DEFAULT"),
                 paddingLeft: theme("spacing[1.5]"),
                 paddingRight: theme("spacing[1.5]"),

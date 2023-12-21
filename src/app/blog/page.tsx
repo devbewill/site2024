@@ -17,7 +17,7 @@ export default function Blog() {
   });
   return (
     <main className="flex flex-col">
-      <h1 className="text-3xl font-bold">All posts</h1>
+      <h1 className="text-2xl font-bold text-black">All posts</h1>
       <section className="py-10">
         {posts.map((post) => (
           <div
@@ -25,18 +25,18 @@ export default function Blog() {
             className="w-full grid py-2 grid-cols-12 border-b"
           >
             <div className="col-span-1">
-              <span className="text-xs font-bold uppercase bg-purple-500 text-white p-1 rounded">
+              <span className="text-xs font-bold uppercase bg-primary text-white p-1 rounded">
                 {post.meta.tags}
               </span>
             </div>
             <Link
               href={"/post/" + post.slug}
               passHref
-              className="col-span-5 font-semibold"
+              className="col-span-8 font-semibold"
             >
               {post.meta.title}
             </Link>
-            <div className="col-span-5 justify-self-end">{post.meta.date}</div>
+            <div className="col-span-3 justify-self-end">{post.meta.date}</div>
           </div>
         ))}
       </section>

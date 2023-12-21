@@ -51,8 +51,8 @@ export default function Post({ params }: any) {
   const props = getPost(params);
 
   return (
-    <article className="prose prose-sm md:prose-base lg:prose-lg mx-auto">
-      <h1>{props.frontMatter.title}</h1>
+    <article className="prose prose-sm md:prose-base  mx-auto">
+      <h1 className="text-xl">{props.frontMatter.title}</h1>
 
       {/* @ts-expect-error Server Component*/}
       <MDXRemote source={props.content} options={options} />

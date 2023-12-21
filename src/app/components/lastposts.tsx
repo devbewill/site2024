@@ -26,7 +26,7 @@ export default function Lastposts() {
           <Link
             href={"/post/" + post.slug}
             passHref
-            className="col-span-9 font-semibold text-black"
+            className="col-span-9 font-semibold text-black transition hover:text-primary hover:translate-x-1"
           >
             {post.meta.title}
           </Link>

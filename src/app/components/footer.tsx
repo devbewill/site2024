@@ -5,7 +5,16 @@ export default function Footer() {
     <div className="flex justify-between mt-20 py-3 border-t">
       <p>2023 - Stefano Perelli</p>
       <div>
-        <Link href="/">Home</Link> / <Link href="/blog">Blog</Link>
+        <Link href="/" className="font-semibold transition hover:text-primary">
+          Home
+        </Link>{" "}
+        /{" "}
+        <Link
+          href="/blog"
+          className="font-semibold transition hover:text-primary"
+        >
+          Blog
+        </Link>
       </div>
     </div>
   );
