@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import "@/styles/highlight-js/dracula.css";
+import Navbar from "../../components/navbar";
 
 /* rehypeHighlight options for syntax highlight and other stuff */
 
@@ -51,12 +52,15 @@ export default function Post({ params }: any) {
   const props = getPost(params);
 
   return (
-    <article className="prose prose-sm md:prose-base  mx-auto">
-      <h1 className="text-xl">{props.frontMatter.title}</h1>
+    <>
+      <Navbar></Navbar>
+      <article className="mt-20 prose prose-sm md:prose-base  mx-auto">
+        <h1 className="text-xl">{props.frontMatter.title}</h1>
 
-      {/* @ts-expect-error Server Component*/}
-      <MDXRemote source={props.content} options={options} />
-    </article>
+        {/* @ts-expect-error Server Component*/}
+        <MDXRemote source={props.content} options={options} />
+      </article>
+    </>
   );
 }
 
