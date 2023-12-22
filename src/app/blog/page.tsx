@@ -25,23 +25,23 @@ export default function Blog() {
           {posts.map((post) => (
             <div
               key={post.slug}
-              className="w-full grid py-2 grid-cols-12 border-b"
+              className="w-full grid py-2 lg:grid-cols-12 border-b"
             >
-              <div className="col-span-1">
+              <div className="hidden lg:block lg:col-span-1">
                 <span className="text-xs font-bold uppercase bg-primary text-white p-1 rounded">
                   {post.meta.tags}
                 </span>
               </div>
+              <div className="lg:col-span-3 lg:order-2 lg:place-self-end">
+                {post.meta.date}
+              </div>
               <Link
                 href={"/post/" + post.slug}
                 passHref
-                className="col-span-8 font-semibold"
+                className="lg:col-span-8 font-semibold text-black lg:order-1"
               >
                 {post.meta.title}
               </Link>
-              <div className="col-span-3 justify-self-end">
-                {post.meta.date}
-              </div>
             </div>
           ))}
         </section>
