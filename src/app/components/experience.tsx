@@ -45,8 +45,8 @@ export default function Experience() {
             key={job.company}
             className="grid py-2 lg:grid-cols-12 border-b border-black"
           >
-            <div className="lg:col-span-3">{job.year}</div>
-            <div className="lg:col-span-5 font-semibold text-black">
+            <div className="lg:col-span-2">{job.year}</div>
+            <div className="lg:col-span-6 font-semibold text-black">
               {job.role}
             </div>
             <div className="lg:col-span-4 justify-self-end">{job.company}</div>

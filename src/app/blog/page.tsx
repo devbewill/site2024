@@ -38,7 +38,7 @@ export default function Blog() {
               <Link
                 href={"/post/" + post.slug}
                 passHref
-                className="lg:col-span-8 font-semibold text-black lg:order-1"
+                className="lg:col-span-8 font-semibold text-black lg:order-1 transition hover:text-primary hover:translate-x-1"
               >
                 {post.meta.title}
               </Link>
