@@ -19,7 +19,7 @@ export default function Blog() {
 
   // Sort posts by date in descending order
   const sortedPosts = posts.sort(
-    (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
   );
 
   return (
