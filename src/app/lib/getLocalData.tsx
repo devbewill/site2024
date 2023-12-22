@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export function getLocalData(localFolder) {
+export function getLocalData(localFolder: string) {
   const files = fs.readdirSync(path.join(localFolder));
   const localFiles = files.map((filename) => {
     const fileContent = fs.readFileSync(
