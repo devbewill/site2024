@@ -1,0 +1,97 @@
+---
+title: Reusing the function for reading from different local sources
+date: "2023.12.22"
+description: Reusing the function for reading from different local sources.
+tags: ["code"]
+---
+
+Imagine you have your React blog and all your posts are stored in a folder called `posts`, but you have a brilliant idea to add a new section to your site where you want to share your notes.
+The most logical choice is to create a separate folder for the notes and keep the posts and notes separate.
+Your folder tree should look something like this:
+
+```
+- posts
+ - post-1.md
+ - post-2.md
+
+- notes
+ - note-1.md
+ - note-2.md
+```
+
+You can easily share the same code to be read in different folders without duplicating the same code in each page.
+To do this, you can create a new page `getLocalData.tsx` in `/app/lib/` and write there the generic code for reading files.
+
+```javascript
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export function getLocalData(localFolder) {
+  const files = fs.readdirSync(path.join(localFolder));
+  const localFiles = files.map((filename) => {
+    const fileContent = fs.readFileSync(
+      path.join(localFolder, filename),
+      "utf-8"
+    );
+    const { data: frontMatter } = matter(fileContent);
+
+    return {
+      meta: frontMatter,
+      slug: filename.replace(".mdx", ""),
+    };
+  });
+
+  // Sort posts by date in descending order
+  const sortedFiles = localFiles.sort(
+    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
+  );
+
+  return sortedFiles;
+}
+```
+
+Now all you need to do is create your page or component to display your notes or posts and import `getLocalFiles`.
+After that you can use it in your new component or page without forgetting to pass the folder you want to read as a parameter.
+
+```javascript
+//your Posts section
+
+import Link from "next/link";
+import { getLocalData } from "../lib/getLocalData";
+
+export default function Lastposts() {
+  const posts = getLocalData("posts"); // 👈 the folder from which you want to read files
+
+  return (
+    <section className="posts">
+      {posts.map((post) => (
+        ...
+      ))}
+    </section>
+  );
+}
+
+```
+
+or
+
+```javascript
+//your Notes section
+
+import Link from "next/link";
+import { getLocalData } from "../lib/getLocalData";
+
+export default function Lastposts() {
+  const notes = getLocalData("notes"); // 👈 the folder from which you want to read files
+
+  return (
+    <section className="notes">
+      {notes.map((note) => (
+        ...
+      ))}
+    </section>
+  );
+}
+
+```
