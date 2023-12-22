@@ -5,10 +5,10 @@ export default function Sidebar() {
   return (
     <header className="lg:self-start lg:sticky lg:col-span-3 lg:top-10">
       <Image
-        className="rounded-full mt-10"
+        className="rounded-full mt-10 shadow-xl "
         src="/stefano-perelli.jpg"
-        width="120"
-        height="120"
+        width="150"
+        height="150"
         alt="avatar"
       ></Image>
 

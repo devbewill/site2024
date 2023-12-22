@@ -53,7 +53,13 @@ export default function Stack() {
           return (
             <div key={tool.name} className="flex items-center py-2 border-b">
               <div className="pr-4">
-                <Image width={40} height={40} src={tool.logo} alt={tool.name} />
+                <Image
+                  className=" min-w-[40px]"
+                  width={40}
+                  height={40}
+                  src={tool.logo}
+                  alt={tool.name}
+                />
               </div>
               <div className="flex">
                 <div className="flex flex-col">
