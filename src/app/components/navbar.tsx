@@ -12,6 +12,10 @@ export default function Navbar() {
         <Link href="/blog" className="px-1 transition hover:text-primary">
           Blog
         </Link>
+        /
+        <Link href="/agenda" className="px-1 transition hover:text-primary">
+          Agenda
+        </Link>
       </div>
     </header>
   );

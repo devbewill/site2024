@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "./components/navbar";
 import Section from "./components/section";
 import Sidebar from "./components/sidebar";
-import Agenda from "./components/agenda";
+import WeeklyAgenda from "./components/weeklyagenda";
 import Experience from "./components/experience";
 import Lastposts from "./components/lastposts";
 import Stack from "./components/stack";
@@ -15,7 +15,7 @@ export default function Home() {
         <Sidebar></Sidebar>
         <div className="mt-20 lg:mt-10 lg:col-start-5 lg:col-span-full">
           <Section title="Weekly agenda">
-            <Agenda></Agenda>
+            <WeeklyAgenda></WeeklyAgenda>
           </Section>
           <Section title="Last posts">
             <Lastposts></Lastposts>

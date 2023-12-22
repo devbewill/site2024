@@ -11,6 +11,10 @@ export default function Footer() {
         /{" "}
         <Link href="/blog" className="transition hover:text-primary">
           Blog
+        </Link>{" "}
+        /{" "}
+        <Link href="/agenda" className="transition hover:text-primary">
+          Agenda
         </Link>
       </div>
     </div>
