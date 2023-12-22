@@ -12,7 +12,7 @@ export default function Sidebar() {
         alt="avatar"
       ></Image>
 
-      <p className="py-2 text-2xl mt-5 text-black">
+      <p className="py-2 text-xl mt-5 font-black text-black">
         Product Director <span className="text-primary">@mangrovia</span>
       </p>
       <p>
