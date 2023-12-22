@@ -16,7 +16,13 @@ export default function Blog() {
               className="w-full grid py-2 lg:grid-cols-12 border-b"
             >
               <div className="hidden lg:block lg:col-span-1">
-                <span className="text-xs font-bold uppercase bg-primary text-white p-1 rounded">
+                <span
+                  className={
+                    note.meta.tags == "bad"
+                      ? "text-xs font-bold uppercase bg-red-500 text-white p-1 rounded"
+                      : "text-xs font-bold uppercase bg-green-500 text-white p-1 rounded"
+                  }
+                >
                   {note.meta.tags}
                 </span>
               </div>
