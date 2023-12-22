@@ -16,9 +16,14 @@ export default function Lastposts() {
     };
   });
 
+  // Sort posts by date in descending order
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+  );
+
   return (
     <section className="lastposts py-4">
-      {posts.slice(0, 5).map((post) => (
+      {sortedPosts.slice(0, 5).map((post) => (
         <div
           key={post.slug}
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"

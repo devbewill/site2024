@@ -16,13 +16,19 @@ export default function Blog() {
       slug: filename.replace(".mdx", ""),
     };
   });
+
+  // Sort posts by date in descending order
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+  );
+
   return (
     <>
       <Navbar></Navbar>
       <main className="flex flex-col mt-20">
         <h1 className="text-2xl font-bold text-black">All posts</h1>
         <section className="py-10">
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <div
               key={post.slug}
               className="w-full grid py-2 lg:grid-cols-12 border-b"

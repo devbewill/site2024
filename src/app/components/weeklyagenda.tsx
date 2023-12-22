@@ -15,16 +15,20 @@ export default function WeeklyAgenda() {
       slug: filename.replace(".mdx", ""),
     };
   });
+  // Sort posts by date in descending order
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+  );
 
   return (
     <section className="lastposts py-4">
-      <p>
+      <p className="pb-4">
         A sneak peek into my life as a Product Director. I will share here my
         notes, my goals and their relative progress, a rollercoaster of
         challenges, victories and pains as we shape our product and company
         vision.
       </p>
-      {posts.slice(0, 5).map((post) => (
+      {sortedPosts.slice(0, 5).map((post) => (
         <div
           key={post.slug}
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"
