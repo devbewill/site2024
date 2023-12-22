@@ -1,29 +1,12 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
+import { getLocalData } from "../lib/getLocalData";
 
 export default function Lastposts() {
-  const postDir = "posts";
-  const files = fs.readdirSync(path.join(postDir));
-  const posts = files.map((filename) => {
-    const fileContent = fs.readFileSync(path.join(postDir, filename), "utf-8");
-    const { data: frontMatter } = matter(fileContent);
-
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
-
-  // Sort posts by date in descending order
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
-  );
+  const posts = getLocalData("posts");
 
   return (
     <section className="lastposts py-4">
-      {sortedPosts.slice(0, 5).map((post) => (
+      {posts.slice(0, 5).map((post) => (
         <div
           key={post.slug}
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"

@@ -1,24 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
+import { getLocalData } from "../lib/getLocalData";
 
 export default function WeeklyAgenda() {
-  const postDir = "agenda";
-  const files = fs.readdirSync(path.join(postDir));
-  const posts = files.map((filename) => {
-    const fileContent = fs.readFileSync(path.join(postDir, filename), "utf-8");
-    const { data: frontMatter } = matter(fileContent);
-
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
-  // Sort posts by date in descending order
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
-  );
+  const agendaNotes = getLocalData("agenda");
 
   return (
     <section className="lastposts py-4">
@@ -28,20 +12,20 @@ export default function WeeklyAgenda() {
         challenges, victories and pains as we shape our product and company
         vision.
       </p>
-      {sortedPosts.slice(0, 5).map((post) => (
+      {agendaNotes.slice(0, 5).map((note) => (
         <div
-          key={post.slug}
+          key={note.slug}
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"
         >
           <div className="lg:order-2 lg:col-span-3 lg:justify-self-end">
-            {post.meta.date}
+            {note.meta.date}
           </div>
           <Link
-            href={"/weekly/" + post.slug}
+            href={"/weekly/" + note.slug}
             passHref
             className="lg:order-1 lg:col-span-9 font-semibold text-black transition hover:text-primary hover:translate-x-1"
           >
-            {post.meta.title}
+            {note.meta.title}
           </Link>
         </div>
       ))}
