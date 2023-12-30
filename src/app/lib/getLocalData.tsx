@@ -12,14 +12,18 @@ export function getLocalData(localFolder: string) {
     const { data: frontMatter } = matter(fileContent);
 
     return {
-      meta: frontMatter,
+      // meta: frontMatter,
+      date: frontMatter.date,
+      title: frontMatter.title,
+      description: frontMatter.description,
+      tags: frontMatter.tags,
       slug: filename.replace(".mdx", ""),
     };
   });
 
   // Sort posts by date in descending order
   const sortedFiles = localFiles.sort(
-    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
   return sortedFiles;

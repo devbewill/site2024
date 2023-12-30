@@ -3,18 +3,18 @@ import Navbar from "../../components/navbar";
 import Link from "next/link";
 import Post from "../../components/post";
 
-export async function getPostTags({ params: { tag } }) {
+async function getPostTags({ params }: any) {
   return {
     props: {
-      tag,
+      tag: params.tag,
     },
   };
 }
 
-export default function Tag({ params }) {
+export default function Tag({ params }: any) {
   const tag = decodeURI(params.tag);
   const filteredPosts = getLocalData("posts").filter((post) =>
-    post.meta.tags.includes(tag)
+    post.tags.includes(tag)
   );
 
   return (
@@ -33,7 +33,7 @@ export default function Tag({ params }) {
 
         <section className="py-10">
           {filteredPosts.map((post) => (
-            <Post data={post}></Post>
+            <Post key={post.title} data={post}></Post>
           ))}
         </section>
       </main>

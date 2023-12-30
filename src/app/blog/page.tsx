@@ -13,7 +13,7 @@ export default function Blog() {
         <h1 className="text-2xl font-bold text-black">All posts</h1>
         <section className="py-10">
           {posts.map((post) => (
-            <Post data={post}></Post>
+            <Post key={post.title} data={post}></Post>
           ))}
         </section>
       </main>

@@ -12,14 +12,14 @@ export default function Lastposts() {
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"
         >
           <div className="lg:order-2 lg:col-span-3 lg:justify-self-end">
-            {post.meta.date}
+            {post.date}
           </div>
           <Link
             href={"/post/" + post.slug}
             passHref
             className="lg:order-1 lg:col-span-9 font-semibold text-black transition hover:text-primary hover:translate-x-1"
           >
-            {post.meta.title}
+            {post.title}
           </Link>
         </div>
       ))}

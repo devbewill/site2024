@@ -18,23 +18,23 @@ export default function Blog() {
               <div className="hidden lg:block lg:col-span-1">
                 <span
                   className={
-                    note.meta.tags == "bad"
+                    note.tags == "bad"
                       ? "text-xs font-bold uppercase bg-red-500 text-white p-1 rounded"
                       : "text-xs font-bold uppercase bg-green-500 text-white p-1 rounded"
                   }
                 >
-                  {note.meta.tags}
+                  {note.tags}
                 </span>
               </div>
               <div className="lg:col-span-3 lg:order-2 lg:place-self-end">
-                {note.meta.date}
+                {note.date}
               </div>
               <Link
                 href={"/weekly/" + note.slug}
                 passHref
                 className="lg:col-span-8 font-semibold text-black lg:order-1 transition hover:text-primary hover:translate-x-1"
               >
-                {note.meta.title}
+                {note.title}
               </Link>
             </div>
           ))}
