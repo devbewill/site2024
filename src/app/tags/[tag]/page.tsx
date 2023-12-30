@@ -3,17 +3,18 @@ import Navbar from "../../components/navbar";
 import Link from "next/link";
 import Post from "../../components/post";
 
+const posts = getLocalData("posts");
+
 export async function generateStaticParams() {
-  const posts = getLocalData("posts");
   return posts.map((post) => ({
-    tag: decodeURI(post.tags),
+    tag: encodeURI(post.tags),
   }));
 }
 
 export default function Tag({ params }: any) {
   const { tag } = params;
-  const filteredPosts = getLocalData("posts").filter((post) =>
-    post.tags.includes(tag)
+  const filteredPosts = posts.filter((post) =>
+    post.tags.includes(decodeURI(tag))
   );
 
   return (

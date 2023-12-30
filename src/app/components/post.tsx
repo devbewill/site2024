@@ -2,7 +2,6 @@ import Link from "next/link";
 
 export default function Post({ data }: any) {
   const { slug, tags, date, title } = data;
-
   const getTagLink = (tag: string) => {
     return (
       <Link
