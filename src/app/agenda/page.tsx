@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <>
       <Navbar></Navbar>
-      <main className="flex flex-col mt-20">
+      <main className="flex flex-col mt-36">
         <h1 className="text-2xl font-bold text-black">All posts</h1>
         <section className="py-10">
           {agendaNotes.map((note) => (

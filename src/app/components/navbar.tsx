@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="bg-white  sticky  top-0 py-8 flex justify-between items-center">
+    <header className="bg-white  fixed left-0 right-0 mx-auto max-w-6xl   top-0 py-8 flex justify-between items-center">
       <h2 className="text-xl font-black text-black">stefanoperelli</h2>
       <div>
         <Link href="/" className="px-1 transition hover:text-primary">

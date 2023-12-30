@@ -3,13 +3,12 @@ import Link from "next/link";
 export default function Post({ data }: any) {
   const { slug, tags, date, title } = data;
 
-  console.log(title);
-
   const getTagLink = (tag: string) => {
     return (
       <Link
+        key={tag}
         className="text-xs font-bold uppercase bg-primary text-white p-1 rounded"
-        href={`/blog/${tag}`}
+        href={`/tags/${tag}`}
       >
         {tag}{" "}
       </Link>

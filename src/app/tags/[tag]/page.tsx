@@ -20,7 +20,7 @@ export default function Tag({ params }: any) {
   return (
     <>
       <Navbar></Navbar>
-      <main className="flex flex-col mt-20">
+      <main className="flex flex-col mt-36">
         <div className="flex gap-3 items-center">
           <Link href="/blog">&larr; </Link>
           <h1 className="text-2xl font-bold text-black">
