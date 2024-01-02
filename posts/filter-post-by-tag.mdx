@@ -1,0 +1,66 @@
+---
+title: Filter blog posts by tag
+date: "2024.01.02"
+description: How to filter posts by tag in 2 minutes.
+tags: ["nextjs"]
+---
+
+Sometimes who have a blog love tagging their posts with tags to give a preview of the content.
+In next.js it's easy add this feature.
+The steps to do it are the follow:
+
+1. create a folder in your app folder named with the path you want use for the url, for example if you want your filtered posts appear in `yourblog.com/tags/[tag]` create a folder `tags`.
+
+```
+- app
+  - tags
+```
+
+2. in your new `tags` folder you have to create a `[tag]` folder (in next.js this syntax is used to describe a dynamic route) and inside it creates a file `page.js`
+
+```
+- app
+  - tags
+    - [tag]
+      - page.js
+```
+
+3. in that page you have to lists all your tags and pass them as a parameter.
+
+```javascript
+//loop trought your posts and create a new set of your array (posts) with all tags and without duplicates.
+function getUniquePostTags(posts) {
+  const uniqueTags = posts.map((post) => post.tags);
+  return [...new Set(uniqueTags.flat())];
+}
+
+// create a new variable to use in generateStaticParams() nextjs function.
+const allTags = getUniquePostTags(posts);
+
+// generateStaticParams() is used to create a build time all the pages.
+export function generateStaticParams() {
+  return allTags.map((tag) => ({
+    tag: tag,
+  }));
+}
+```
+
+4. always in that page use the parameter to filter the posts with that tag
+
+```javascript
+export default function Tag({ params }) {
+  // pass the params to your page
+  const { tag } = params;
+  const filteredPosts = posts.filter((post) => post.tags.includes(tag)); // loop through your posts array and show only the posts with tag passed as parameter
+
+  const postList = filteredPosts.map((post) => (
+    <Post key={post.title} data={post}></Post>
+  ));
+
+  return <div>{postList}</div>;
+}
+```
+
+done!
+
+You can see the full code [here](https://github.com/devbewill/site2024/blob/main/src/app/tags/%5Btag%5D/page.js)
