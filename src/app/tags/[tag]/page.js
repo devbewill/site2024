@@ -6,7 +6,7 @@ import Post from "../../components/post";
 const posts = getLocalData("posts");
 const allTags = getUniquePostTags(posts);
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allTags.map((tag) => ({
     tag: tag,
   }));
@@ -15,6 +15,10 @@ export async function generateStaticParams() {
 export default function Tag({ params }) {
   const { tag } = params;
   const filteredPosts = posts.filter((post) => post.tags.includes(tag));
+
+  const postList = filteredPosts.map((post) => (
+    <Post key={post.title} data={post}></Post>
+  ));
 
   return (
     <>
@@ -29,12 +33,7 @@ export default function Tag({ params }) {
             </span>
           </h1>
         </div>
-
-        <section className="py-10">
-          {filteredPosts.map((post) => (
-            <Post key={post.title} data={post}></Post>
-          ))}
-        </section>
+        <section className="py-10">{postList}</section>
       </main>
     </>
   );
