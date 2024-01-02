@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import Navbar from "../../components/navbar";
-import "@/app/styles/highlight-js/dracula.css";
+import "../../styles/highlight-js/dracula.css";
 
 /* rehypeHighlight options for syntax highlight and other stuff */
 
