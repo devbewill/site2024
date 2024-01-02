@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
-import "@/styles/highlight-js/dracula.css";
+import "@/app/styles/highlight-js/dracula.css";
 import Navbar from "../../components/navbar";
 
 /* rehypeHighlight options for syntax highlight and other stuff */

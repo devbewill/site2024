@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export function getLocalData(localFolder: string) {
+export function getLocalData(localFolder) {
   const files = fs.readdirSync(path.join(localFolder));
   const localFiles = files.map((filename) => {
     const fileContent = fs.readFileSync(
@@ -27,4 +27,9 @@ export function getLocalData(localFolder: string) {
   );
 
   return sortedFiles;
+}
+
+export function getUniquePostTags(posts) {
+  const uniqueTags = posts.map((post) => post.tags);
+  return [...new Set(uniqueTags.flat())];
 }

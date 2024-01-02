@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Footer from "./components/footer";
 import "./globals.css";
 
@@ -10,16 +10,12 @@ const inter = Inter({
   display: "swap",
 });
 
-const metadata: Metadata = {
+const metadata = {
   title: "stefanoperelli.com",
   description: "my little space on web",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body className="max-w-6xl mx-auto px-4">

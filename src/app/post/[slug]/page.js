@@ -3,8 +3,8 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
-import "@/styles/highlight-js/dracula.css";
 import Navbar from "../../components/navbar";
+import "@/app/styles/highlight-js/dracula.css";
 
 /* rehypeHighlight options for syntax highlight and other stuff */
 
@@ -30,7 +30,7 @@ export async function generateStaticParams() {
 
 /* This method will simply fetch a blog post from a given slug. To do this it reads the file in the "blogs" directory with the same filename as the slug. It then uses matter to fetch the metadata and markdown content of this file and returns the FrontMatter metadata, inputted slug and markdown content. */
 
-function getPost({ slug }: { slug: string }) {
+function getPost({ slug }) {
   const markdownFile = fs.readFileSync(
     path.join("posts", slug + ".mdx"),
     "utf-8"
@@ -48,7 +48,7 @@ function getPost({ slug }: { slug: string }) {
 /* display the blog post itself. We first fetch the post with the getPost method and then display it using the MDXRemote component.
 We also display the blog's title at the top of the page too. */
 
-export default function Post({ params }: any) {
+export default function Post({ params }) {
   const props = getPost(params);
 
   return (
@@ -65,7 +65,7 @@ export default function Post({ params }: any) {
 }
 
 //METADATA
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }) {
   const blog = getPost(params);
 
   return {

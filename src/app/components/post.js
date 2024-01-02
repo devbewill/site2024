@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function Post({ data }: any) {
+export default function Post({ data }) {
   const { slug, tags, date, title } = data;
-  const getTagLink = (tag: string) => {
+  const getTagLink = (tag) => {
     return (
       <Link
         key={tag}
@@ -16,9 +16,7 @@ export default function Post({ data }: any) {
   return (
     <div key={slug} className="w-full grid py-2 lg:grid-cols-12 border-b">
       <div className="hidden lg:block lg:col-span-2">
-        <div className="flex gap-1">
-          {tags.map((tag: string) => getTagLink(tag))}
-        </div>
+        <div className="flex gap-1">{tags.map((tag) => getTagLink(tag))}</div>
       </div>
       <div className="lg:col-span-2 lg:order-2 lg:place-self-end">{date}</div>
       <Link

@@ -11,11 +11,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Tag({ params }: any) {
+export default function Tag({ params }) {
   const { tag } = params;
-  const filteredPosts = posts.filter((post) =>
-    post.tags.includes(decodeURI(tag))
-  );
+  const filteredPosts = posts.filter((post) => post.tags.includes(tag));
 
   return (
     <>
