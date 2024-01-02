@@ -1,13 +1,14 @@
-import { getLocalData } from "../../lib/getLocalData";
+import { getLocalData, getUniquePostTags } from "../../lib/getLocalData";
 import Navbar from "../../components/navbar";
 import Link from "next/link";
 import Post from "../../components/post";
 
 const posts = getLocalData("posts");
+const allTags = getUniquePostTags(posts);
 
 export async function generateStaticParams() {
-  return posts.map((post) => ({
-    tag: encodeURI(post.tags),
+  return allTags.map((tag) => ({
+    tag: tag,
   }));
 }
 
