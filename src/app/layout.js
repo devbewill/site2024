@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-import { Metadata } from "next";
 import Footer from "./components/footer";
 import "./globals.css";
 
@@ -10,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const metadata = {
+export const metadata = {
   title: "stefanoperelli.com",
   description: "my little space on web",
 };

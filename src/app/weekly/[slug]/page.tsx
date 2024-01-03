@@ -54,7 +54,7 @@ export default function Post({ params }: any) {
   return (
     <>
       <Navbar></Navbar>
-      <article className="mt-20 prose prose-sm md:prose-base  mx-auto">
+      <article className="mt-36 prose prose-sm md:prose-base  mx-auto">
         <h1 className="text-xl">{props.frontMatter.title}</h1>
 
         {/* @ts-expect-error Server Component*/}

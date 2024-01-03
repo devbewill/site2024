@@ -66,10 +66,9 @@ export default function Post({ params }) {
 
 //METADATA
 export async function generateMetadata({ params }) {
-  const blog = getPost(params);
-
+  const post = getPost(params);
   return {
-    title: blog.frontMatter.title,
-    description: blog.frontMatter.description,
+    title: post.frontMatter.title,
+    description: post.frontMatter.description,
   };
 }
