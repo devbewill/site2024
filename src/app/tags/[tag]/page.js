@@ -28,7 +28,7 @@ export default function Tag({ params }) {
           <Link href="/blog">&larr; </Link>
           <h1 className="text-2xl font-bold text-black">
             Posts tagged
-            <span className="text-sm font-bold uppercase bg-primary text-white p-1 mx-1 rounded">
+            <span className="text-sm font-bold uppercase bg-primary text-white p-1 mx-2 rounded">
               {tag}
             </span>
           </h1>
