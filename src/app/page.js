@@ -4,6 +4,7 @@ import Sidebar from "./components/sidebar";
 import WeeklyAgenda from "./components/weeklyagenda";
 import Experience from "./components/experience";
 import Lastposts from "./components/lastposts";
+import LastProjects from "./components/lastprojects";
 import Stack from "./components/stack";
 
 export default function Home() {
@@ -18,6 +19,9 @@ export default function Home() {
           </Section>
           <Section title="Last posts">
             <Lastposts></Lastposts>
+          </Section>
+          <Section title="Last projects">
+            <LastProjects></LastProjects>
           </Section>
           <Section title="Experience">
             <Experience></Experience>
