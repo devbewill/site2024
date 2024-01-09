@@ -29,6 +29,12 @@ export default function Sidebar() {
       >
         Linkedin &#8594;
       </a>
+      <a
+        href="mailto:ste.perelli@gmail.com?subject=contact"
+        className="flex py-3 font-semibold text-black transition hover:text-primary"
+      >
+        Mail &#8594;
+      </a>
     </header>
   );
 }
