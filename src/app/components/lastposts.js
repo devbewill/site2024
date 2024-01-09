@@ -6,7 +6,7 @@ export default function Lastposts() {
 
   return (
     <section className="lastposts py-4">
-      {posts.slice(0, 5).map((post) => (
+      {posts.slice(0, 10).map((post) => (
         <div
           key={post.slug}
           className="w-full grid py-2 lg:grid-cols-12 border-b border-slate-500"
