@@ -4,7 +4,7 @@ import Sidebar from "./components/sidebar";
 import WeeklyAgenda from "./components/weeklyagenda";
 import Experience from "./components/experience";
 import Lastposts from "./components/lastposts";
-import LastProjects from "./components/lastprojects";
+import LastProjects from "./components/lastProjects";
 import Stack from "./components/stack";
 
 export default function Home() {
