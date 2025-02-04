@@ -13,7 +13,7 @@ export default function Sidebar() {
       ></Image>
 
       <p className="py-2 text-xl mt-5 font-black text-black">
-        Product Director <span className="text-primary">@mangrovia</span>
+        Project Manager <span className="text-primary">@Randstad Digital</span>
       </p>
       <p>
         I like to think of myself as a product manager who consistently strikes
