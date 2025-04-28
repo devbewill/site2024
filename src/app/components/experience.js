@@ -2,7 +2,7 @@ export default function Experience() {
   const data = [
     {
       year: "2024",
-      role: "Project Manager",
+      role: "Sr. Project Manager",
       company: "Randstad Digital",
       img: "x.png",
     },
