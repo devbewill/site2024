@@ -13,7 +13,8 @@ export default function Sidebar() {
       ></Image>
 
       <p className="py-2 text-xl mt-5 font-black text-black">
-        Project / Product Manager <span className="text-primary">#opennetwork</span>
+        Project & Delivery Manager @{" "}
+        <span className="text-primary">Harley&Dikkinson</span>
       </p>
       <p>
         I like to think of myself as a product manager who consistently strikes
